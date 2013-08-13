@@ -23,10 +23,10 @@ THE SOFTWARE.
 #ifndef LUIT_OTHER_H
 #define LUIT_OTHER_H 1
 
-#include "config.h"		/* include this, for self-contained headers */
+#include "config.h"				/* include this, for self-contained headers */
 
 #ifndef GCC_UNUSED
-#define GCC_UNUSED		/* ARGSUSED */
+#define GCC_UNUSED				/* ARGSUSED */
 #endif
 
 #include <X11/fonts/fontenc.h>
@@ -34,48 +34,48 @@ THE SOFTWARE.
 #define UChar(n) ((unsigned char)(n))
 
 typedef struct {
-    FontMapPtr mapping;
-    FontMapReversePtr reverse;
-    int buf;
+	FontMapPtr mapping;
+	FontMapReversePtr reverse;
+	int buf;
 } aux_gbk;
 
 typedef struct {
-    unsigned char buf[4];
-    int buf_ptr, len;
+	unsigned char buf[4];
+	int buf_ptr, len;
 } aux_utf8;
 
 typedef struct {
-    FontMapPtr x0208mapping;
-    FontMapPtr x0201mapping;
-    FontMapReversePtr x0208reverse;
-    FontMapReversePtr x0201reverse;
-    int buf;
+	FontMapPtr x0208mapping;
+	FontMapPtr x0201mapping;
+	FontMapReversePtr x0208reverse;
+	FontMapReversePtr x0201reverse;
+	int buf;
 } aux_sjis;
 
 typedef struct {
-    FontMapPtr mapping;
-    FontMapReversePtr reverse;
-    int buf;
+	FontMapPtr mapping;
+	FontMapReversePtr reverse;
+	int buf;
 } aux_hkscs;
 
 typedef struct {
-    FontMapPtr cs0_mapping;	/* gb18030.2000-0 */
-    FontMapReversePtr cs0_reverse;
+	FontMapPtr cs0_mapping;		/* gb18030.2000-0 */
+	FontMapReversePtr cs0_reverse;
 
-    FontMapPtr cs1_mapping;	/* gb18030.2000-1 */
-    FontMapReversePtr cs1_reverse;
+	FontMapPtr cs1_mapping;		/* gb18030.2000-1 */
+	FontMapReversePtr cs1_reverse;
 
-    int linear;			/* set to '1' if stack_gb18030 linearized a 4bytes seq */
-    int buf[3];
-    int buf_ptr;
+	int linear;						/* set to '1' if stack_gb18030 linearized a 4bytes seq */
+	int buf[3];
+	int buf_ptr;
 } aux_gb18030;
 
 typedef union {
-    aux_gbk gbk;
-    aux_utf8 utf8;
-    aux_sjis sjis;
-    aux_hkscs hkscs;
-    aux_gb18030 gb18030;
+	aux_gbk gbk;
+	aux_utf8 utf8;
+	aux_sjis sjis;
+	aux_hkscs hkscs;
+	aux_gb18030 gb18030;
 } OtherState, *OtherStatePtr;
 
 int init_gbk(OtherStatePtr);

@@ -40,28 +40,28 @@ THE SOFTWARE.
 #define CHARSET_REGULAR(c) ((c)->type != T_128)
 
 typedef struct _Charset {
-    const char *name;
-    int type;
-    unsigned char final;
-    unsigned int (*recode) (unsigned int, const struct _Charset * self);
-    int (*reverse) (unsigned int, const struct _Charset * self);
-    const void *data;
-    int (*other_stack) (unsigned c, OtherStatePtr aux);
-    OtherState *other_aux;
-    unsigned int (*other_recode) (unsigned int c, OtherStatePtr aux);
-    unsigned int (*other_reverse) (unsigned int c, OtherStatePtr aux);
-    struct _Charset *next;
+	const char *name;
+	int type;
+	unsigned char final;
+	unsigned int (*recode) (unsigned int, const struct _Charset * self);
+	int (*reverse) (unsigned int, const struct _Charset * self);
+	const void *data;
+	int (*other_stack) (unsigned c, OtherStatePtr aux);
+	OtherState *other_aux;
+	unsigned int (*other_recode) (unsigned int c, OtherStatePtr aux);
+	unsigned int (*other_reverse) (unsigned int c, OtherStatePtr aux);
+	struct _Charset *next;
 } CharsetRec, *CharsetPtr;
 
 typedef struct _LocaleCharset {
-    const char *name;
-    int gl;
-    int gr;
-    const char *g0;
-    const char *g1;
-    const char *g2;
-    const char *g3;
-    const char *other;
+	const char *name;
+	int gl;
+	int gr;
+	const char *g0;
+	const char *g1;
+	const char *g2;
+	const char *g3;
+	const char *other;
 } LocaleCharsetRec, *LocaleCharsetPtr;
 
 const CharsetRec *getUnknownCharset(int);
@@ -69,11 +69,11 @@ const CharsetRec *getCharset(unsigned, int);
 const CharsetRec *getCharsetByName(const char *);
 void reportCharsets(void);
 int getLocaleState(const char *locale, const char *charset,
-		   int *gl_return, int *gr_return,
-		   const CharsetRec * *g0_return,
-		   const CharsetRec * *g1_return,
-		   const CharsetRec * *g2_return,
-		   const CharsetRec * *g3_return,
-		   const CharsetRec * *other_return);
+				int *gl_return, int *gr_return,
+				const CharsetRec * *g0_return,
+				const CharsetRec * *g1_return,
+				const CharsetRec * *g2_return,
+				const CharsetRec * *g3_return,
+				const CharsetRec * *other_return);
 
 #endif /* LUIT_CHARSET_H */

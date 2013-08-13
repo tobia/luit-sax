@@ -32,4 +32,4 @@ MAN_SUBSTS += -e 's|__locale_alias__|$(LOCALEALIASFILE)|g'
 
 # String replacements in MAN_SUBSTS now come from xorg-macros.m4 via configure
 .man.$(APP_MAN_SUFFIX):
-	$(AM_V_GEN)$(SED) $(MAN_SUBSTS) < $< > $@
+		$(AM_V_GEN)$(SED) $(MAN_SUBSTS) < $< > $@

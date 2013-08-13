@@ -2,11 +2,11 @@
 .\"
 .\" Escape single quotes in literal strings from groff's Unicode transform.
 .ie \n(.g .ds AQ \(aq
-.el       .ds AQ '
+.el	.ds AQ '
 .ie \n(.g .ds `` \(lq
-.el       .ds `` ``
+.el	.ds `` ``
 .ie \n(.g .ds '' \(rq
-.el       .ds '' ''
+.el	.ds '' ''
 .TH LUIT 1 __vendorversion__
 .SH NAME
 luit \- Locale and ISO\ 2022 support for Unicode terminals

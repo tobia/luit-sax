@@ -32,7 +32,7 @@ extern int olog;
 
 /* Not using Xfuncproto.h since that would pull in extra dependencies */
 #if (defined(__GNUC__) && ((__GNUC__ * 100 + __GNUC_MINOR__) >= 205)) \
-        || (defined(__SUNPRO_C) && (__SUNPRO_C >= 0x590))
+		|| (defined(__SUNPRO_C) && (__SUNPRO_C >= 0x590))
 # define LUIT_NORETURN __attribute__((noreturn))
 #else
 # define LUIT_NORETURN /* nothing */

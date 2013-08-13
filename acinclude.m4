@@ -2,7 +2,7 @@ dnl ---------------------------------------------------------------------------
 dnl
 dnl Copyright 2006-2009,2010 by Thomas E. Dickey
 dnl
-dnl                         All Rights Reserved
+dnl						All Rights Reserved
 dnl
 dnl Permission to use, copy, modify, and distribute this software and its
 dnl documentation for any purpose and without fee is hereby granted,
@@ -38,18 +38,18 @@ AC_TRY_RUN([
 #include <sys/poll.h>
 #endif
 int main() {
-	struct pollfd myfds;
-	int ret;
+		struct pollfd myfds;
+		int ret;
 
-	myfds.fd = 0;
-	myfds.events = POLLIN;
+		myfds.fd = 0;
+		myfds.events = POLLIN;
 
-	ret = poll(&myfds, 1, 100);
-	${cf_cv_main_return:-return}(ret != 0);
+		ret = poll(&myfds, 1, 100);
+		${cf_cv_main_return:-return}(ret != 0);
 }],
-	[cf_cv_working_poll=yes],
-	[cf_cv_working_poll=no],
-	[cf_cv_working_poll=unknown])])
+		[cf_cv_working_poll=yes],
+		[cf_cv_working_poll=no],
+		[cf_cv_working_poll=unknown])])
 test "$cf_cv_working_poll" = "yes" && AC_DEFINE(HAVE_WORKING_POLL, 1, [poll() works])
 ])dnl
 
@@ -66,20 +66,20 @@ dnl break that part of the interface as well.
 AC_DEFUN([CF_SIGWINCH],
 [
 AC_CACHE_CHECK(if SIGWINCH is defined,cf_cv_define_sigwinch,[
-	AC_TRY_COMPILE([
+		AC_TRY_COMPILE([
 #include <sys/types.h>
 #include <sys/signal.h>
 ],[int x = SIGWINCH],
-	[cf_cv_define_sigwinch=yes],
-	[AC_TRY_COMPILE([
+		[cf_cv_define_sigwinch=yes],
+		[AC_TRY_COMPILE([
 #undef _XOPEN_SOURCE
 #undef _POSIX_SOURCE
 #undef _POSIX_C_SOURCE
 #include <sys/types.h>
 #include <sys/signal.h>
 ],[int x = SIGWINCH],
-	[cf_cv_define_sigwinch=maybe],
-	[cf_cv_define_sigwinch=no])
+		[cf_cv_define_sigwinch=maybe],
+		[cf_cv_define_sigwinch=no])
 ])
 ])
 
@@ -89,7 +89,7 @@ cf_cv_fixup_sigwinch=unknown
 cf_sigwinch=32
 while test $cf_sigwinch != 1
 do
-	AC_TRY_COMPILE([
+		AC_TRY_COMPILE([
 #undef _XOPEN_SOURCE
 #undef _POSIX_SOURCE
 #undef _POSIX_C_SOURCE
@@ -100,16 +100,16 @@ do
 make an error
 #endif
 int x = SIGWINCH],
-	[cf_cv_fixup_sigwinch=$cf_sigwinch
-	 break])
+		[cf_cv_fixup_sigwinch=$cf_sigwinch
+		break])
 
 cf_sigwinch=`expr $cf_sigwinch - 1`
 done
 ])
 
-	if test "$cf_cv_fixup_sigwinch" != unknown ; then
-		CPPFLAGS="$CPPFLAGS -DSIGWINCH=$cf_cv_fixup_sigwinch"
-	fi
+		if test "$cf_cv_fixup_sigwinch" != unknown ; then
+				CPPFLAGS="$CPPFLAGS -DSIGWINCH=$cf_cv_fixup_sigwinch"
+		fi
 fi
 ])dnl
 
