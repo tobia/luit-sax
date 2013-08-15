@@ -174,6 +174,8 @@ static const OtherCharsetRec otherCharsets[] =
 	{"SJIS", init_sjis, mapping_sjis, reverse_sjis, stack_sjis},
 	{"BIG5-HKSCS", init_hkscs, mapping_hkscs, reverse_hkscs, stack_hkscs},
 	{"GB18030", init_gb18030, mapping_gb18030, reverse_gb18030, stack_gb18030},
+	// SAX is the encoding used by SHARP APL for UNIX
+	{"SAX", init_sax, mapping_sax, reverse_sax, stack_sax},
 	{0, 0, 0, 0, 0}
 };
 
@@ -454,6 +456,8 @@ static const LocaleCharsetRec localeCharsets[] =
 	{"SJIS",	0, 1, NULL,	NULL,		NULL,			NULL,		"SJIS"},
 	{"Big5-HKSCS", 0, 1, NULL,	NULL,		NULL,			NULL,		"BIG5-HKSCS"},
 	{"gb18030",	0, 1, NULL,	NULL,		NULL,			NULL,		"GB18030"},
+	// SAX is the encoding used by SHARP APL for UNIX
+	{"SAX",		0, 1, NULL,	NULL,		NULL,			NULL,		"SAX"},
 	{0,			0, 0, 0,	0,			0,			0,			0}
 };
 /* *INDENT-ON* */

@@ -103,4 +103,9 @@ unsigned int mapping_gb18030(unsigned int, OtherStatePtr);
 unsigned int reverse_gb18030(unsigned int, OtherStatePtr);
 int stack_gb18030(unsigned, OtherStatePtr);
 
+int init_sax(OtherStatePtr);
+unsigned int mapping_sax(unsigned int, OtherStatePtr);
+unsigned int reverse_sax(unsigned int, OtherStatePtr);
+int stack_sax(unsigned, OtherStatePtr);
+
 #endif /* LUIT_OTHER_H */
